@@ -1,0 +1,304 @@
+$font: 13px;
+$fontStyle: 'Raleway', Arial, sans-serif;
+$font-color: #dedee1;
+$page-width: 1000px;
+
+body{
+	background: #444444;
+	color: $font-color;
+	font-family: $fontStyle;
+	font-weight: 700;
+}
+
+.overlay{
+	fill:none;
+	stroke: #222222;
+}
+.focus circle {
+	fill: none;
+	stroke: steelblue;
+}
+.title{
+	text-align:center;
+	font-size: 16px;
+}
+#graphDiv{
+	margin-top:50px;
+}
+#graph{
+	text-align:center;
+	background: #2a2a2b;
+	max-width: 1100px;
+	margin-left:auto;
+	margin-right:auto;
+	.legend{
+		max-width: 500px;
+		min-height: 40px;
+		margin-left:auto;
+		margin-right:auto;
+		li{
+			display:inline-block;
+			.legendDiv{
+				display:inline-block;
+				margin-right: 5px;
+				margin-left: 15px;
+			}
+		}
+	}
+}
+.menuButton{
+	position:absolute;
+	width: 36px;
+	height:30px;
+	left: 36px;
+	top: 36px;
+	margin-top:10px;
+	z-index: 9999;
+	cursor: pointer;
+	.menuBar{
+		position: absolute;
+		height: 20%;
+		width:100%;
+		left: 0px;
+		right: 0px;
+		opacity: 1;
+		background: $font-color;
+	}
+	.top{
+		top: 0%;
+		transition: 1s;
+	}
+	.middle{
+		top: 40%;
+		transition: 1s;
+	}
+	.bottom{
+		top: 80%;
+		transition: 1s;
+	}
+}
+
+.menuBar.top.x{
+	transform: rotate(-45deg);
+	width:50%;
+	height:10%;
+	margin-top:24px;
+}
+.menuBar.middle.x{
+	height:0%;
+}
+.menuBar.bottom.x{
+	transform: rotate(45deg);
+	height: 10%;
+	width: 50%
+}
+
+.menu{
+	min-height: 100%;
+	z-index: 2;
+	text-align:center;
+	background: #373a47;
+	margin-top:-33px;
+	transition: 1s;
+	width: 28%;
+	max-width:336px;
+	input{
+		margin-bottom: 15px;
+		margin-top:15px;
+    	width: 56%;
+    	margin-right: 10px;
+    	height: 19px;
+    	border-radius: 10px;
+    	color: #ff7f0e;
+    	font-size: 15px;
+    	text-align: center;
+    	font-family: $fontStyle;
+    	font-weight: 700;
+	}
+	.stocks{
+		margin-top:30px;
+		font-size:12px;
+		.stock{
+			width: 100%;
+			text-align:left;
+			padding: 10px;
+			border-top: solid;
+			border: 2px;
+		}
+	}
+}
+.menu.appear{
+	margin-left:0px;
+	position: absolute;
+}
+.menu.disappear{
+	margin-left:-30%;
+	position:fixed;
+}
+.page-wrap{
+	transition: 1s;
+	.title{
+		margin-top:70px;
+	}
+}
+.page-wrap.full{
+	margin-left:0px;
+	margin-right:0px;
+}
+.page-wrap.small{
+	margin-left:30%;
+}
+.info{
+	font-size: $font;
+	text-align:center;
+	min-height:36px;
+	margin-top:-40px;
+	margin-bottom: -15px;
+	max-width:1000px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.svg-container {
+    display: inline-block;
+    position: relative;
+    width: 90%;
+    padding-bottom: 52%;
+    vertical-align: top;
+    overflow: hidden;
+    max-width: 1000px;
+}
+.svg-content-responsive {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    max-width: 1000px;
+}
+.xAxis{
+	font-size: $font + 6;
+	fill: #dedee1;
+}
+.yAxis{
+	font-size:$font + 6;
+	fill: #dedee1;
+}
+.type-div{
+	z-index:9999;
+}
+.time-div{
+	margin-top:20px;
+}
+.delete{
+	position:absolute;
+	width: 18px;
+	height:15px;
+	z-index: 9999;
+	cursor: pointer;
+	margin-top: -21px;
+	margin-left:185px;
+	.deleting{
+		width: 100%;
+		height: 20%;
+		background:red;
+		position:absolute;
+	}
+	.deleting.up{
+		transform: rotate(45deg);
+	}
+	.deleting.down{
+		transform: rotate(-45deg);
+	}
+}
+
+@media (min-width: 1200px){
+	.page-wrap.small{
+		margin-left: 350px;
+	}
+}
+@media(max-width: 800px) and (min-width: 521px){
+	.menu{
+		min-height: 250px;
+		width: 98%;
+		max-width: 10000px;
+		text-align: left;
+		h2{
+			margin-top:47px;
+			margin-left: 18px;
+		}
+		input{
+			margin-left: 10px;
+			width: 25%;
+		}
+		.time-div{
+			margin-left: 10px;
+		}
+		.type-div{
+			margin-left: 10px;
+		}
+		.stocks{
+			margin-top: -216px;
+			margin-left: 308px;
+			.stock{
+				padding: 0px;
+				margin-top: -10px;
+			}
+		}
+	}
+	.menu.appear{
+		margin-left: 0px;
+		margin-top: -263px;
+	}
+	.menu.disappear{
+		margin-left: -0%;
+		margin-top:-500px;
+	}
+	.page-wrap.small{
+		margin-top:300px;
+		margin-left:0px;
+	}
+
+}
+@media(max-width: 520px){
+	.menu{
+		min-height: 450px;
+		max-height: 450px;
+		width: 98%;
+		max-width: 10000px;
+		text-align: left;
+		h2{
+			margin-top:47px;
+			margin-left: 18px;
+		}
+		input{
+			margin-left: 10px;
+			width: 25%;
+		}
+		.time-div{
+			margin-left: 10px;
+		}
+		.type-div{
+			margin-left: 10px;
+		}
+		.stocks{
+			margin-top: 0px;
+			margin-left: 10px;
+			.stock{
+				padding: 0px;
+				margin-top: -10px;
+			}
+		}
+	}
+	.menu.appear{
+		margin-left: 0px;
+		margin-top: -459px;
+	}
+	.menu.disappear{
+		margin-left: -0%;
+		margin-top: -550px;
+	}
+	.page-wrap.small{
+		margin-top:500px;
+		margin-left:0px;
+	}
+}
