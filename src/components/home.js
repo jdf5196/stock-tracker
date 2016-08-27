@@ -12,7 +12,7 @@ let addDays = (day)=>{
 };
 
 let ping = ()=> {
-    setInterval(()=>{ ws.send(JSON.stringify({text:'ping', type: 'ping'})) }, 3000);
+    setInterval(()=>{ ws.send(JSON.stringify({text:'ping', type: 'ping'})) }, 20000);
 }
 
 class Home extends React.Component{
