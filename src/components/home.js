@@ -11,6 +11,10 @@ let addDays = (day)=>{
 	return result;
 };
 
+let ping = ()=> {
+    setInterval(()=>{ ws.send(JSON.stringify({text:'ping', type: 'ping'})) }, 3000);
+}
+
 class Home extends React.Component{
 	constructor(props){
 		super(props);
@@ -37,8 +41,11 @@ class Home extends React.Component{
 					this.setState({data: [JSON.parse(data.data)], message: data.message})
 					console.log(this.state.data)
 					break;
+				case 'ping':
+					break;
 			}
 		}
+		ping();
 	}
 	call(text){
 		let data = {text: text, type: 'call'};
@@ -150,7 +157,6 @@ class Home extends React.Component{
     					</div>
     				</div>
     			</div>
-    			<Footer />
     		</div>
 		)
 	}

@@ -120,7 +120,10 @@ wss.on('connection', (ws)=>{
 				wss.clients.forEach((client)=>{
 					client.send(JSON.stringify(response))
 				})
-
+				break;
+			case 'ping':
+				lookup[ws.id].send(JSON.stringify({message:'ping', type: 'ping'}))
+				break;
 		};
 	});
 	ws.on('close', ()=>{
