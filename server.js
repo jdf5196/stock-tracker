@@ -2,6 +2,7 @@
 
 const mongoose = require('mongoose');
 const express = require('express');
+const compression = require('compression');
 const request = require('request');
 const yahoo = require('yahoo-finance');
 const db = process.env.MONGODB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/stocks';
@@ -18,6 +19,7 @@ let initial = false;
 
 const port = process.env.PORT || 5000;
 const server = express()
+	.use(compression())
 	.use(express.static(process.cwd() + '/build'))
 	.listen(port, ()=>console.log(`Listening on port ${port}`))
 
@@ -46,6 +48,7 @@ wss.on('connection', (ws)=>{
 			})
 			let params = encodeURIComponent(JSON.stringify(getInputParams(arr)));
 			let url = `http://dev.markitondemand.com/MODApis/Api/v2/InteractiveChart/json?parameters=${params}`;
+			console.log(url)
 			request(url, (err, res, body)=>{
 				if(err){
 					console.log(err)
@@ -72,6 +75,7 @@ wss.on('connection', (ws)=>{
 						let today = new Date();
 						let params = encodeURIComponent(JSON.stringify(getInputParams(arr)));
 						let url = `http://dev.markitondemand.com/MODApis/Api/v2/InteractiveChart/json?parameters=${params}`
+						console.log(url)
 						request(url, (err, res, body)=>{
 							if(err){
 								console.log(err)
