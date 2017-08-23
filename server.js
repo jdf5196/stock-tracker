@@ -31,7 +31,6 @@ let addYear = (day)=>{
 	return result;
 };
 
-
 wss.on('connection', (ws)=>{
 	ws.id = id++;
 	lookup[ws.id] = ws;
